@@ -1,0 +1,1 @@
+web: java $JAVA_OPTS -jar out/artifacts/BusProject_jar/BusProject.jar --port 3000

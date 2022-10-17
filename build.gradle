@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+}
+
+group 'org.BusProject'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.json:json:20190722'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation "com.slack.api:bolt:1.16.0"
+    implementation "com.slack.api:bolt-servlet:1.16.0"
+    implementation "com.slack.api:bolt-jetty:1.16.0"
+    implementation  "org.slf4j:slf4j-simple:1.7.32"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
+
+task stage(dependsOn: ['build', 'clean'])
